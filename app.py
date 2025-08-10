@@ -104,7 +104,7 @@ with col_graf3:
     
 with col_graf4:
     if not df_clean_filtrado.empty:
- df_ds = df_clean[df_clean['job_title'] == 'Data Scientist']
+        df_ds = df_clean[df_clean['job_title'] == 'Data Scientist']
         AverageDS = df_ds.groupby('Country_iso3')['salary_in_usd'].mean().reset_index()
 
         fig = px.choropleth(
@@ -112,14 +112,15 @@ with col_graf4:
             locations='Country_iso3',
             color='salary_in_usd',
             hover_name='Country_iso3',
-            color_continuous_scale='rdylgn',
-            title='Average salary of data scientists by country',
-            labels={'usd': 'Average Salary (USD)', 'residencia_iso3': 'Country'}
+            color_continuous_scale='rdylgn'
         )
+
         fig.update_layout(title_x=0.1)
         st.plotly_chart(fig, use_container_width=True)
     else:
         st.warning("No data available to display country chart.")
+
 st.subheader("Detailed Data")
 
 st.dataframe(df_clean_filtrado)
+
