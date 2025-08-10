@@ -103,7 +103,7 @@ with col_graf3:
             st.warning("No data available to display work mode chart.")
     
 with col_graf4:
-    if not df_clean_filtrado.empty:
+    if not df_clean_filtrado.empty: import pycountry
         df_ds = df_clean[df_clean['job_title'] == 'Data Scientist']
         AverageDS = df_ds.groupby('Country_iso3')['salary_in_usd'].mean().reset_index()
 
@@ -123,4 +123,5 @@ with col_graf4:
 st.subheader("Detailed Data")
 
 st.dataframe(df_clean_filtrado)
+
 
