@@ -104,7 +104,7 @@ with col_graf3:
     
 with col_graf4:
     df_ds = df_clean[df_clean['job_title'] == 'Data Scientist']
-        AverageDS = df_ds.groupby('Country_iso3')['salary_in_usd'].mean().reset_index()
+    AverageDS = df_ds.groupby('Country_iso3')['salary_in_usd'].mean().reset_index()
 
         fig = px.choropleth(
             AverageDS,
@@ -123,6 +123,7 @@ with col_graf4:
 st.subheader("Detailed Data")
 
 st.dataframe(df_clean_filtrado)
+
 
 
 
